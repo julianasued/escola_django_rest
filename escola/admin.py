@@ -1,5 +1,5 @@
 from django.contrib import admin
-from escola.models import Aluno, Curso
+from escola.models import Aluno, Curso, Matricula
 
 class Alunos(admin.ModelAdmin):
     # Campos para exibir no admin
@@ -22,3 +22,11 @@ class Cursos(admin.ModelAdmin):
     list_per_page = 20
 
 admin.site.register(Curso, Cursos)
+
+class Matriculas(admin.ModelAdmin):
+    # Campos para exibir no admin
+    list_display = ('id', 'aluno', 'curso')
+    # Campos que deixa clicar quando altera
+    list_display_links = ('id', )
+
+admin.site.register(Matricula, Matriculas)
